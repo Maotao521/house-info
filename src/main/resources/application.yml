@@ -1,0 +1,33 @@
+server:
+    port: 8087
+spring:
+    druid:
+       driverClassName: com.mysql.jdbc.Driver
+       url: jdbc:mysql://127.0.0.1:3306/house_db?characterEncoding=UTF-8
+       username: root
+       password: huyuguo123456
+       #最大连接数
+       maxActive: 30
+       #最小连接数
+       minIdle: 5
+       #最大等待时间
+       maxWait: 10000
+       #解决mysql8小时问题
+       validationQuery: SELECT 'x'
+       #剔除空闲连接检查时间间隔
+       timeBetweenEvictionRunMillis: 60000
+       #最小空闲时间
+       minEvictableIdleTimeMillis: 300000
+    freemarker:
+      charset: UTF-8
+      content-type: text/html;charset=UTF-8
+      expose-request-attributes: true
+      expose-session-attributes: true
+      expose-spring-macro-helpers: true
+      suffix: .ftl
+      settings:
+         datetime_format: yyyy-MM-dd HH:mm:ss
+         default_encoding: UTF-8
+         auto_import: common/common.ftl as common
+mybatis:
+    config-location: classpath:/mybatis/mybatis-config.xml
